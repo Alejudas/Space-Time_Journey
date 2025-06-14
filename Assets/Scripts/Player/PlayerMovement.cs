@@ -11,9 +11,13 @@ public class PlayerMovement : MonoBehaviour
 
     protected IInteractable interactables;
     private Rigidbody2D rb;
+
+    public Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,6 +26,19 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = joystick.Horizontal;
         float vertical = joystick.Vertical;
         direction = new Vector2(horizontal,vertical).normalized;
+
+        float speed = direction.magnitude;
+        animator.SetFloat("Speed", speed);
+
+        // Flip
+        if (horizontal < -0.1f)
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // mirando a la izquierda
+        }
+        else if (horizontal > 0.1f)
+        {
+            transform.localScale = new Vector3(1, 1, 1); // mirando a la derecha
+        }
     }
     private void FixedUpdate()
     {
