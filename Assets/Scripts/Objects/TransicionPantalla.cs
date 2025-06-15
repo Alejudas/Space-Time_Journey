@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -7,11 +7,29 @@ public class TransicionPantalla : MonoBehaviour
     public Image panelNegro;
     public float duracion = 1f;
 
+    public GameObject panelControles; // ← Panel de los botones o joystick
+    public PlayerMovement playerMovement;
+
     public IEnumerator Transicion(System.Action alCompletar)
     {
+        // Desactivar los controles antes del viaje y movimiento
+        if (panelControles != null)
+            panelControles.SetActive(false);
+        if (playerMovement != null)
+            playerMovement.enabled =false;
+
         yield return StartCoroutine(Fade(0, 1));
-        alCompletar?.Invoke();
+
+        alCompletar?.Invoke(); // Ejemplo: mover jugador, cambiar escena, etc.
+
         yield return StartCoroutine(Fade(1, 0));
+
+        // Activar los controles después del viaje y movimiento
+        if (panelControles != null)
+            panelControles.SetActive(false);
+        if (playerMovement != null)
+            playerMovement.enabled = true;
+
     }
 
     private IEnumerator Fade(float inicio, float fin)

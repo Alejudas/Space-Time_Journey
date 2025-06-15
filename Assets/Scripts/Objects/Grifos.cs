@@ -7,7 +7,7 @@ public class Grifos : MonoBehaviour, IInteractable
     [SerializeField] private GameObject siguienteGrifo;
     [SerializeField] private ArrowGuide flecha;
     [SerializeField] private Transform nuevoDestino;
-
+    public PlayerMovement pm;
     public void Interact(GameObject player)
     {
         StartCoroutine(TaskComplete());
@@ -15,6 +15,9 @@ public class Grifos : MonoBehaviour, IInteractable
 
     private IEnumerator TaskComplete()
     {
+        if (pm != null)
+            pm.enabled = false;
+
         // Sonido del grifo
         if (sonidoGrifo != null)
             sonidoGrifo.Play();
@@ -29,5 +32,8 @@ public class Grifos : MonoBehaviour, IInteractable
         // Cambiar destino de la flecha
         if (flecha != null && nuevoDestino != null)
             flecha.ChangeTarget(nuevoDestino);
+
+        if (pm != null)
+            pm.enabled = true;
     }
 }
