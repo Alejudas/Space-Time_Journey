@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7e4d8e1146e8ed047810d684b6278b7c
+guid: 722b60187530fab40aa9efb9bb42bfb0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2124845339533959349
-    second: portal_84x84_0
+      213: 317401789806994198
+    second: Portal_astro_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,12 +139,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: portal_84x84_0
+      name: Portal_astro_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 84
+        width: 170
         height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4f1f6eeb680382e0800000000000000
-      internalID: -2124845339533959349
+      spriteID: 613e4840f33a76400800000000000000
+      internalID: 317401789806994198
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      portal_84x84_0: -2124845339533959349
+      Portal_astro_0: 317401789806994198
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
