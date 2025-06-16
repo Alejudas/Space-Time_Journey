@@ -7,7 +7,7 @@ public class Puzzle3 : MonoBehaviour,IInteractable
 {
     [SerializeField] UnityEvent EventsOnActive;
     [SerializeField] GameObject PanelActive, router, unlocker;
-    [SerializeField] UnlockDetector stickDetector;
+    [SerializeField] StickDetector stickDetector;
     public void Interact(GameObject player)
     {
         PanelActive.SetActive(true);
