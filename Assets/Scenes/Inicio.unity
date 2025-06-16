@@ -886,7 +886,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2144437255}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: IniciarJuego
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -964,6 +964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 0}
+  controllsPanel: {fileID: 0}
 --- !u!4 &2144437256
 Transform:
   m_ObjectHideFlags: 0
