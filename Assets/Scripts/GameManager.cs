@@ -4,15 +4,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instancia;
-    public delegate void Delegate();
-    public Delegate GameStart;
-    public Delegate PauseGame;
-    public Delegate ResumeGame;
-    public Delegate GameOver;
+    public delegate void GameManagerDelegate();
+    public GameManagerDelegate GameStart;
+    public GameManagerDelegate PauseGame;
+    public GameManagerDelegate ResumeGame;
+    public GameManagerDelegate GameOver;
+    public GameManagerDelegate RestartGame;
 
     //Objetos
 
     public GameObject pausePanel;
+    public GameObject controllsPanel;
     private void Awake()
     {
         if (Instancia == null)
@@ -23,39 +25,50 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
     }
 
-    public void IniciarJuego()
+    public void StartGame()
     {
         GameStart?.Invoke();
         SceneManager.LoadScene("Escena de pruebas");
         Time.timeScale = 1;
     }
-    public void PausarJuego()
+    public void Pause()
     {
     //    if (pausePanel != null && !pausePanel.activeSelf)
     //    {
             pausePanel.SetActive(true);
+            controllsPanel.SetActive(false);
         //}
         PauseGame?.Invoke();
         Time.timeScale = 0;
     }
-    public void ReanudarJuego()
+    public void Resume()
     {
-        pausePanel.SetActive(false);
+       pausePanel.SetActive(false);
+       controllsPanel.SetActive(true);
+
         ResumeGame?.Invoke();
         Time.timeScale = 1;
     }
-    public void FinalizarJuego()
+    public void End()
     {
         GameOver?.Invoke();
+        SceneManager.LoadScene("Credits");
 
         Time.timeScale = 1;
     }
-    public void CerrarJuego()
+    public void Close()
     {
         Application.Quit();
+    }
+
+    public void Restart()
+    {
+        RestartGame?.Invoke();
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
