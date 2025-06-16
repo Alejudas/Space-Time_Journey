@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour
     public GameManagerDelegate GameOver;
     public GameManagerDelegate RestartGame;
 
-    //Objetos
-
+    // Objetos
     public GameObject pausePanel;
     public GameObject controllsPanel;
+    public GameObject portalAnimObject; 
+
     private void Awake()
     {
         if (Instancia == null)
@@ -31,34 +32,45 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         GameStart?.Invoke();
+        StartCoroutine(TransitionAndStart());
+    }
+
+    private System.Collections.IEnumerator TransitionAndStart()
+    {
+        if (portalAnimObject != null)
+        {
+            portalAnimObject.SetActive(true); 
+        }
+
+        yield return new WaitForSeconds(1.5f); 
+
         SceneManager.LoadScene("Escena de pruebas");
         Time.timeScale = 1;
     }
+
     public void Pause()
     {
-    //    if (pausePanel != null && !pausePanel.activeSelf)
-    //    {
-            pausePanel.SetActive(true);
-            controllsPanel.SetActive(false);
-        //}
+        pausePanel.SetActive(true);
+        controllsPanel.SetActive(false);
         PauseGame?.Invoke();
         Time.timeScale = 0;
     }
+
     public void Resume()
     {
-       pausePanel.SetActive(false);
-       controllsPanel.SetActive(true);
-
+        pausePanel.SetActive(false);
+        controllsPanel.SetActive(true);
         ResumeGame?.Invoke();
         Time.timeScale = 1;
     }
+
     public void End()
     {
         GameOver?.Invoke();
         SceneManager.LoadScene("Credits");
-
         Time.timeScale = 1;
     }
+
     public void Close()
     {
         Application.Quit();
@@ -70,5 +82,4 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 }
