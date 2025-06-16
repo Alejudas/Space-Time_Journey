@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class StickDetector : MonoBehaviour
+public class UnlockDetector : MonoBehaviour
 {
     [SerializeField] RectTransform collisionUnlock;
-    [SerializeField] RectTransform CollsionStick;
+    [SerializeField] RectTransform CollsionObject;
     public bool Unlock;
     void Update()
     {
-        if (RectOverlaps(collisionUnlock, CollsionStick))
+        if (RectOverlaps(collisionUnlock, CollsionObject))
         {
             Unlock = true;
             Debug.Log("entraron en colision");
