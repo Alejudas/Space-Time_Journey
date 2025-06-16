@@ -19,7 +19,6 @@ public class ZonaDeCajas : MonoBehaviour
             if (objetosEnZona.Count >= cantidadNecesaria)
             {
                 Debug.Log("¡Cantidad requerida alcanzada!");
-                // Ejecuta la acción deseada aquí
             }
         }
     }

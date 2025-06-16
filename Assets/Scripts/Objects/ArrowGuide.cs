@@ -29,6 +29,7 @@ public class ArrowGuide : MonoBehaviour
             // Rotarla hacia el objetivo
             float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
             flechaUI.rotation = Quaternion.Euler(0, 0, angulo);
+            flechaUI.gameObject.SetActive(true);
         }
         else
         {

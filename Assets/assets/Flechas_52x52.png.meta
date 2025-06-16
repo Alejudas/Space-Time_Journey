@@ -145,10 +145,10 @@ TextureImporter:
       name: Flechas_52x52_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 4
-        width: 41
-        height: 41
+        x: 0
+        y: 52
+        width: 52
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,10 +167,10 @@ TextureImporter:
       name: Flechas_52x52_1
       rect:
         serializedVersion: 2
-        x: 57
-        y: 4
-        width: 41
-        height: 41
+        x: 0
+        y: 0
+        width: 52
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,7 +189,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 33f45a1f5fe48ce489f89962e8628fd9
     internalID: 0
     vertices: []
     indices: 

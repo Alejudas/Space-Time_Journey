@@ -7,29 +7,38 @@ public class TransicionPantalla : MonoBehaviour
     public Image panelNegro;
     public float duracion = 1f;
 
-    public GameObject panelControles; // ← Panel de los botones o joystick
-    public PlayerMovement playerMovement;
-
+    public GameObject portalAnimObj; // El objeto que contiene el Animator
+    public GameObject panelControles;
+    public PlayerMovement pm;
     public IEnumerator Transicion(System.Action alCompletar)
     {
-        // Desactivar los controles antes del viaje y movimiento
+
         if (panelControles != null)
             panelControles.SetActive(false);
-        if (playerMovement != null)
-            playerMovement.enabled =false;
-
+        if (pm != null)
+            pm.enabled = false;
         yield return StartCoroutine(Fade(0, 1));
 
-        alCompletar?.Invoke(); // Ejemplo: mover jugador, cambiar escena, etc.
+        // Mostrar animación del portal
+        if (portalAnimObj != null)
+        {
+            portalAnimObj.SetActive(true);
+            yield return new WaitForSeconds(1.5f); // o la duración del loop de animación
+        }
+
+        alCompletar?.Invoke();
+
+        // Espera un momento para dejar visible el portal después del cambio
+        yield return new WaitForSeconds(0.5f);
+        if (portalAnimObj != null)
+            portalAnimObj.SetActive(false);
 
         yield return StartCoroutine(Fade(1, 0));
 
-        // Activar los controles después del viaje y movimiento
         if (panelControles != null)
-            panelControles.SetActive(false);
-        if (playerMovement != null)
-            playerMovement.enabled = true;
-
+            panelControles.SetActive(true);
+        if (pm != null)
+            pm.enabled = true;
     }
 
     private IEnumerator Fade(float inicio, float fin)
