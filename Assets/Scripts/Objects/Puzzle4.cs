@@ -7,6 +7,8 @@ public class Puzzle4 : MonoBehaviour,IInteractable
 {
     [Header("Variables de sistema de botones")]
 
+    [SerializeField] UnityEvent eventOfUseButom;
+    [SerializeField] UnityEvent eventOfUseButomRestart;
     [SerializeField] float DistanceOfclick;
 
     [Header("Variables del puzzle")]
@@ -42,6 +44,9 @@ public class Puzzle4 : MonoBehaviour,IInteractable
         {
             if (unlockInCorrect[i].Unlock)
             {
+                eventOfUseButomRestart.Invoke();
+                rigidActive.linearVelocity = Vector2.zero;
+                rigidActive.angularVelocity = 0f;
                 ObjectRigid.transform.position = OriginalPosition.transform.position;
                 rigidActive.bodyType = RigidbodyType2D.Kinematic;
             }
@@ -63,6 +68,7 @@ public class Puzzle4 : MonoBehaviour,IInteractable
     }
     public void UseButtomActive()
     {
+        eventOfUseButom.Invoke();
         rigidActive.bodyType = RigidbodyType2D.Dynamic;
     }
 }

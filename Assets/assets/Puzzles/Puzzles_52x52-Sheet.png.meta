@@ -254,10 +254,10 @@ TextureImporter:
       name: fondo_plinko
       rect:
         serializedVersion: 2
-        x: 210
-        y: 54
-        width: 48
-        height: 48
+        x: 212
+        y: 56
+        width: 44
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 13, z: 0, w: 15}
@@ -276,13 +276,13 @@ TextureImporter:
       name: fondo_llave
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 52
-        height: 52
+        x: 1
+        y: 1
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 15, z: 0, w: 15}
+      border: {x: 8, y: 9, z: 8, w: 9}
       customData: 
       outline: []
       physicsShape: []
