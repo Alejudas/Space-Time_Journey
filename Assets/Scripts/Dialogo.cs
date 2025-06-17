@@ -6,6 +6,7 @@ public class Dialogo : MonoBehaviour, IInteractable
 {
     private bool isPlayerInRange;
     [SerializeField] private GameObject recursoVisual;
+    [SerializeField] private GameObject recursoVisualUI;
     [SerializeField] private GameObject panelText ;
     [SerializeField] private GameObject panelControles;
     [SerializeField] private GameObject boton;
@@ -79,6 +80,7 @@ public class Dialogo : MonoBehaviour, IInteractable
         {
             isPlayerInRange = true;
             recursoVisual.SetActive(true);
+            recursoVisualUI.SetActive(true);
         }
     }
 
@@ -88,6 +90,7 @@ public class Dialogo : MonoBehaviour, IInteractable
         {
             isPlayerInRange = false;
             recursoVisual.SetActive(false);
+            recursoVisualUI.SetActive(false);
 
         }
     }
