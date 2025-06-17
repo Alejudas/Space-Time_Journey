@@ -13,11 +13,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     public Animator animator;
-
+    private AudioSource walkSound;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        walkSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +30,17 @@ public class PlayerMovement : MonoBehaviour
 
         float speed = direction.magnitude;
         animator.SetFloat("Speed", speed);
+
+        if (speed > 0.1f)
+        {
+            if (!walkSound.isPlaying)
+                walkSound.Play();
+        }
+        else
+        {
+            if (walkSound.isPlaying)
+                walkSound.Pause();
+        }
 
         // Flip
         if (horizontal < -0.1f)

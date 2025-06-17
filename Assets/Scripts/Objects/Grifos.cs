@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Grifos : MonoBehaviour, IInteractable
 {
-    [SerializeField] private AudioSource sonidoGrifo;
-    [SerializeField] private GameObject siguienteGrifo;
+    [SerializeField] private AudioSource sonido;
+    [SerializeField] private GameObject siguienteOb;
     [SerializeField] private ArrowGuide flecha;
     [SerializeField] private Transform nuevoDestino;
     public PlayerMovement pm;
@@ -19,15 +19,15 @@ public class Grifos : MonoBehaviour, IInteractable
             pm.enabled = false;
 
         // Sonido del grifo
-        if (sonidoGrifo != null)
-            sonidoGrifo.Play();
+        if (sonido != null)
+            sonido.Play();
 
         // Espera un poco para simular tiempo de ejecución
         yield return new WaitForSeconds(2f);
 
         // Activar siguiente grifo
-        if (siguienteGrifo != null)
-            siguienteGrifo.SetActive(true);
+        if (siguienteOb != null)
+            siguienteOb.SetActive(true);
 
         // Cambiar destino de la flecha
         if (flecha != null && nuevoDestino != null)
