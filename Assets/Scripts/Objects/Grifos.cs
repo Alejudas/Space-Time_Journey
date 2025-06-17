@@ -25,7 +25,7 @@ public class Grifos : MonoBehaviour, IInteractable
         // Espera un poco para simular tiempo de ejecución
         yield return new WaitForSeconds(2f);
 
-        // Activar siguiente grifo
+        // Activar siguiente puzzle
         if (siguienteOb != null)
             siguienteOb.SetActive(true);
 
