@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f); 
 
-        SceneManager.LoadScene("Escena de pruebas");
+        SceneManager.LoadScene("Juego");
         Time.timeScale = 1;
     }
 

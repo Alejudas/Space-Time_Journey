@@ -9,10 +9,13 @@ public class TransicionPantalla : MonoBehaviour
 
     public GameObject portalAnimObj; // El objeto que contiene el Animator
     public GameObject panelControles;
+    public GameObject panelFlecha;
     public PlayerMovement pm;
     public IEnumerator Transicion(System.Action alCompletar)
     {
 
+        if (panelControles != null)
+            panelControles.SetActive(false);
         if (panelControles != null)
             panelControles.SetActive(false);
         if (pm != null)

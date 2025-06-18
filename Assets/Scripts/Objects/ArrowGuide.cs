@@ -39,7 +39,7 @@ public class ArrowGuide : MonoBehaviour
     public void ChangeTarget(Transform nuevoObjetivo)
     {
         objetivo = nuevoObjetivo;
-        flechaUI.gameObject.SetActive(true); // Opcional: volver a mostrar si estaba oculta
+        //flechaUI.gameObject.SetActive(true); // Opcional: volver a mostrar si estaba oculta
     }
 
 }
